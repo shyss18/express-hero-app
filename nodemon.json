@@ -1,0 +1,6 @@
+{
+  "env": {
+    "MONGO_ATLAS_PW": "admin",
+    "MONGO_DB_NAME": "express-hero"
+  }
+}

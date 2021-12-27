@@ -34,14 +34,13 @@ export const edit = (
   response: express.Response,
   next,
 ) => {
+  console.log(request.body);
   const id: string = request.params.id;
   HeroModel.findOneAndUpdate(
     { id: id },
     {
       $set: {
         name: request.body.name,
-      },
-      $set: {
         description: request.body.description,
       },
     },

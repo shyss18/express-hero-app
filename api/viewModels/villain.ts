@@ -1,11 +1,11 @@
 export class VillainViewModel {
-  private readonly _id: string;
-  private readonly _name: string;
-  private readonly _description: string;
+  readonly id: string;
+  readonly name: string;
+  readonly description: string;
 
   constructor(id: string, name: string, description: string) {
-    this._id = id;
-    this._name = name;
-    this._description = name;
+    id = id;
+    name = name;
+    description = name;
   }
 }

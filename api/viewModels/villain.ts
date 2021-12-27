@@ -1,7 +1,7 @@
 export class VillainViewModel {
-  readonly id: string;
-  readonly name: string;
-  readonly description: string;
+  id: string;
+  name: string;
+  description: string;
 
   constructor(id: string, name: string, description: string) {
     this.id = id;

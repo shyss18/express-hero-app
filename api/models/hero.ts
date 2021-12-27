@@ -8,8 +8,8 @@ interface Hero {
 
 const heroSchema = new Schema<Hero>({
   id: { type: String, required: true },
-  name: { type: String, required: true },
-  description: { type: String, required: true },
+  name: { type: String, required: true, immutable: false },
+  description: { type: String, required: true, immutable: false },
 });
 
 const HeroModel = model<Hero>("Hero", heroSchema);

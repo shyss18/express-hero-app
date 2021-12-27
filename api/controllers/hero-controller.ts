@@ -35,8 +35,8 @@ export const edit = (
   next,
 ) => {
   const id: string = request.params.id;
-  HeroModel.findByIdAndUpdate(
-    id,
+  HeroModel.findOneAndUpdate(
+    { id: id },
     {
       $set: new HeroModel({
         id: request.body.id,
@@ -61,7 +61,7 @@ export const deleteOne = (
   next,
 ) => {
   const id: string = request.params.id;
-  HeroModel.findByIdAndDelete(id)
+  HeroModel.findOneAndDelete({ id: id })
     .exec()
     .then((result) =>
       response.status(200).json({
@@ -96,7 +96,7 @@ export const getOne = (
   next,
 ) => {
   const id: string = request.params.id;
-  HeroModel.findById(id)
+  HeroModel.findOne({ id: id })
     .exec()
     .then((result) =>
       response

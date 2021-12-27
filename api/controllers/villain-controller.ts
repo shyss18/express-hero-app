@@ -35,8 +35,8 @@ export const edit = (
   next,
 ) => {
   const id: string = request.params.id;
-  VillainModel.findByIdAndUpdate(
-    id,
+  VillainModel.findOneAndUpdate(
+    { id: id },
     {
       $set: new VillainModel({
         id: request.body.id,
@@ -61,7 +61,7 @@ export const deleteOne = (
   next,
 ) => {
   const id: string = request.params.id;
-  VillainModel.findByIdAndDelete(id)
+  VillainModel.findOneAndDelete({ id: id })
     .exec()
     .then((result) =>
       response.status(200).json({
@@ -78,13 +78,7 @@ export const getAll = (
 ) => {
   VillainModel.find()
     .exec()
-    .then((result) => {
-      console.log(
-        result.map(
-          (villain) =>
-            new VillainViewModel(villain.id, villain.name, villain.description),
-        ),
-      );
+    .then((result) =>
       response
         .status(200)
         .json(
@@ -96,8 +90,8 @@ export const getAll = (
                 villain.description,
               ),
           ),
-        );
-    })
+        ),
+    )
     .catch((reason) => response.status(500).json({ error: reason }));
 };
 
@@ -107,7 +101,7 @@ export const getOne = (
   next,
 ) => {
   const id: string = request.params.id;
-  VillainModel.findById(id)
+  VillainModel.findOne({ id: id })
     .exec()
     .then((result) =>
       response

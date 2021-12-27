@@ -40,6 +40,8 @@ export const edit = (
     {
       $set: {
         name: request.body.name,
+      },
+      $set: {
         description: request.body.description,
       },
     },

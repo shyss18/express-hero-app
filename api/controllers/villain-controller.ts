@@ -52,7 +52,7 @@ export const edit = (
         message: `Villain with id:=${result.id} has been succefully updated`,
       }),
     )
-    .catch((reason) => reason.status(500).json({ error: reason }));
+    .catch((reason) => response.status(500).json({ error: reason }));
 };
 
 export const deleteOne = (

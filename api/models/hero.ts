@@ -12,6 +12,6 @@ const heroSchema = new Schema<Hero>({
   description: { type: String, required: true },
 });
 
-const HeroModel = model<Hero>("User", heroSchema);
+const HeroModel = model<Hero>("Hero", heroSchema);
 
 export default HeroModel;

@@ -9,13 +9,13 @@ export const create = (
   next,
 ) => {
   const viewModel: VillainViewModel = request.body;
-  const heroModel = new VillainModel({
+  const villainModel = new VillainModel({
     id: viewModel.name + Guid.create(),
     name: viewModel.name,
     description: viewModel.description,
   });
 
-  heroModel
+  villainModel
     .save()
     .then((result) =>
       response.status(200).json({
@@ -78,7 +78,8 @@ export const getAll = (
 ) => {
   VillainModel.find()
     .exec()
-    .then((result) =>
+    .then((result) => {
+      console.log(result);
       response
         .status(200)
         .json(
@@ -90,8 +91,8 @@ export const getAll = (
                 villain.description,
               ),
           ),
-        ),
-    )
+        );
+    })
     .catch((reason) => response.status(500).json({ error: reason }));
 };
 

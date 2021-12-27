@@ -38,11 +38,10 @@ export const edit = (
   VillainModel.findOneAndUpdate(
     { id: id },
     {
-      $set: new VillainModel({
-        id: request.body.id,
+      $set: {
         name: request.body.name,
         description: request.body.description,
-      }),
+      },
     },
     { $new: true },
   )

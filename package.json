@@ -4,9 +4,11 @@
   "description": "",
   "main": "build/server.js",
   "scripts": {
-    "build": "tsc",
-    "start": "nodemon server.ts",
-    "prestart": "npm run build"
+    "start": "node build/server.js",
+    "postinstall": "tsc",
+    "watch-node": "nodemon build/server.js",
+    "watch-ts": "tsc -w",
+    "deploy": "git add . && git commit -m Heroku && git push heroku master"
   },
   "repository": {
     "type": "git",

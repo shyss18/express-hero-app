@@ -79,7 +79,12 @@ export const getAll = (
   VillainModel.find()
     .exec()
     .then((result) => {
-      console.log(result);
+      console.log(
+        result.map(
+          (villain) =>
+            new VillainViewModel(villain.id, villain.name, villain.description),
+        ),
+      );
       response
         .status(200)
         .json(
